@@ -46,10 +46,13 @@ class OrderController extends Controller
         request()->validate(Order::$rules);
 
         $request->request->add(['status' => 'CREATED']);
+        $request->request->add(['total' => '250000']);
+        $request->request->add(['product' => 'Graphic card gaming NVIDIA 3090']);
 
         $order = Order::create($request->all());
 
-        return redirect()->route('orders.index')->with('success', 'Order created successfully.');
+        return redirect()->route('orders.show',$order->id)->with('success', 'Order created successfully.');
+        
     }
 
     /**

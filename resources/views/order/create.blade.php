@@ -23,6 +23,16 @@
                                     <div class="box box-info padding-1">
                                         <div class="box-body">
                                             <div class="form-group">
+                                                {{ Form::label('customer_identification_type') }}
+                                                {{Form::select('customer_identification_type', array('CC' => 'Cédula de ciudadanía', 'TI' => 'Tarjeta de identidad'), 'CC');}}
+                                                {!! $errors->first('customer_identification', '<div class="invalid-feedback">:message</p>') !!}
+                                            </div>
+                                            <div class="form-group">
+                                                {{ Form::label('customer_identification') }}
+                                                {{ Form::text('customer_identification', $order->customer_identification, ['class' => 'form-control' . ($errors->has('customer_identification') ? ' is-invalid' : ''), 'placeholder' => '123456789']) }}
+                                                {!! $errors->first('customer_identification', '<div class="invalid-feedback">:message</p>') !!}
+                                            </div>
+                                            <div class="form-group">
                                                 {{ Form::label('customer_name') }}
                                                 {{ Form::text('customer_name', $order->customer_name, ['class' => 'form-control' . ($errors->has('customer_name') ? ' is-invalid' : ''), 'placeholder' => 'Jhon ortiz']) }}
                                                 {!! $errors->first('customer_name', '<div class="invalid-feedback">:message</p>') !!}

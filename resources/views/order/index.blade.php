@@ -50,10 +50,8 @@
 											<td>{{ ($order->status == 'CREATED')?'Pending payment':$order->status; }}</td>
 
                                             <td>
-                                                <form action="{{ route('orders.destroy',$order->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('orders.show',$order->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    @csrf
-                                                </form>
+                                                <a class="btn btn-sm btn-primary " href="{{ route('orders.show',$order->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                @csrf
                                             </td>
                                         </tr>
                                     @endforeach

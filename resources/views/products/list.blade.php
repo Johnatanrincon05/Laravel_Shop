@@ -23,7 +23,7 @@
                                         <div class="card-header">Graphic card gaming NVIDIA 3090</div>
                                         <img src="{{ URL::to('/') }}/images/PRODUCT1.png" alt="">
                                         <div class="card-body">
-                                            <h3>$250.00 USD</h3>
+                                            <h3>$250.000 COP</h3>
                                             <p class="card-text">This is the most powerful graphics card on the market.</p>
                                             <div class="d-flex justify-content-end">
                                                 <button type="submit" class="btn btn-sm btn-success">Buy</button>

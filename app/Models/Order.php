@@ -22,9 +22,10 @@ class Order extends Model
 {
     
     static $rules = [
-		'customer_name' => 'required',
-		'customer_email' => 'required',
-		'customer_mobile' => 'required'
+      'customer_identification' => 'required',
+      'customer_name' => 'required',
+      'customer_email' => 'required',
+      'customer_mobile' => 'required'
     ];
 
     protected $perPage = 20;
@@ -34,7 +35,7 @@ class Order extends Model
      *
      * @var array
      */
-    protected $fillable = ['customer_name','customer_email','customer_mobile','status'];
+    protected $fillable = ['customer_identification','customer_identification_type','customer_name','customer_email','customer_mobile','status','product','total'];
 
 
 
