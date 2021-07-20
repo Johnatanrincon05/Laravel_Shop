@@ -41,7 +41,7 @@
                                         <h1> Order {{ $order->status }}</h1>
                                     </div>
                                     <h2>Graphic card gaming NVIDIA 3090</h2>
-                                    <img height="400" width="400" src="{{ URL::to('/') }}/images/PRODUCT1.png" alt="">
+                                    <img class="img-fluid" height="400" width="400" src="{{ URL::to('/') }}/images/PRODUCT1.png" alt="">
                                     <h3>$250.000 COP</h3>
                                     <p class="card-text">This is the most powerful graphics card on the market.</p>
                                     <div class="form-group">
