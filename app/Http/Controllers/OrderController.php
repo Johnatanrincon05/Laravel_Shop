@@ -45,6 +45,7 @@ class OrderController extends Controller
     {
         request()->validate(Order::$rules);
 
+        $request->request->add(['order_reference' => $this->generateOrderId()]);
         $request->request->add(['status' => 'CREATED']);
         $request->request->add(['total' => '250000']);
         $request->request->add(['product' => 'Graphic card gaming NVIDIA 3090']);
@@ -65,7 +66,20 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
 
-        return view('order.show', compact('order'));
+        $transactions = Order::find($id)->transactions;
+
+        $pending_transactions_count = 0;
+
+        foreach($transactions as $transaction){
+
+            if ($transaction->status == "PENDING") {
+                $pending_transactions_count++;
+            }
+
+        }
+
+        return view('order.show', compact('order','transactions','pending_transactions_count'));
+
     }
 
     /**
@@ -110,4 +124,18 @@ class OrderController extends Controller
         return redirect()->route('orders.index')->with('success', 'Order deleted successfully');
     }
     
+    public function generateOrderId(){
+
+        do {
+
+            $order_reference_id = "NID".rand(111111,999999);
+
+            $count_order_id = Order::where('order_reference', '=', $order_reference_id)->count();
+
+        } while ($count_order_id != 0);
+
+        return $order_reference_id;
+
+    }
+
 }

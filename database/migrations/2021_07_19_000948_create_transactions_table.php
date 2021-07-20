@@ -20,6 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->string('reference_code',60);
             $table->string('session_identifier',60);
             $table->text('processing_url');
+            $table->string('status');
             $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();
         });

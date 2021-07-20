@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    protected $fillable = ['order_id','reference_code','session_identifier','processing_url'];
+    protected $fillable = ['order_id','reference_code','session_identifier','processing_url','status'];
+    
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }

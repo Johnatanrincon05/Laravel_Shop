@@ -35,8 +35,11 @@ class Order extends Model
      *
      * @var array
      */
-    protected $fillable = ['customer_identification','customer_identification_type','customer_name','customer_email','customer_mobile','status','product','total'];
+    protected $fillable = ['order_reference','customer_identification','customer_identification_type','customer_name','customer_email','customer_mobile','status','product','total'];
 
-
-
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+    
 }
