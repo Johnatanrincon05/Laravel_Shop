@@ -15,7 +15,7 @@ class PaymentController extends Controller
     public function result($reference)
     {
 
-        $info_result = $this->validateState($reference);
+        $info_result = $this->validateStateGateway($reference);
 
         if ($info_result["result_query"] > 0) {
 
@@ -35,6 +35,7 @@ class PaymentController extends Controller
 
     }
 
+    //This method updates a order status and the tx
     public function updateOrder($reference, $state){
 
         $Transaction = Transaction::where("reference_code",$reference)->first();
@@ -81,7 +82,8 @@ class PaymentController extends Controller
 
     }
 
-    public function validateState($reference){
+    //this method returns the status of the transaction identified with the reference and additional information of the order
+    public function validateStateGateway($reference){
 
         $placetopay = $this->loginGateway();
 
@@ -119,7 +121,8 @@ class PaymentController extends Controller
 
     }
 
-    public function create($id)
+    //create/redirect to a payment url if the Order id is valid, else return to detail view with a error message
+    public function create($id) 
     {
 
         $order = Order::find($id);
@@ -134,7 +137,7 @@ class PaymentController extends Controller
                 
                 $info_transaction = Transaction::where('order_id',$id)->where('status', '=', 'PENDING')->orderBy('created_at', 'desc')->get()->first();
 
-                $result_state_validation = $this->validateState($info_transaction->reference_code);
+                $result_state_validation = $this->validateStateGateway($info_transaction->reference_code);
 
                 if ($result_state_validation["state"] == "PENDING") {
                     
@@ -149,7 +152,7 @@ class PaymentController extends Controller
 
             } else {
     
-                $resultrequest = $this->generateRequest($order);
+                $resultrequest = $this->generatePaymentRequest($order);
 
                 if ($resultrequest["request_done"] > 0) {
     
@@ -164,7 +167,7 @@ class PaymentController extends Controller
                     $saved = $transaction->save();
     
                     if($saved){
-    
+
                         $success_payment_request = 1;
     
                     }
@@ -175,6 +178,7 @@ class PaymentController extends Controller
 
         }
 
+        //if the tx is saved and the request is generated this redirects to the new payment url 
         if ($success_payment_request == 1 && $transactions_count == 0) {
     
             header('Location: '.$resultrequest["url"]);
@@ -188,7 +192,8 @@ class PaymentController extends Controller
 
     }
 
-    public function generateRequest($order)
+    //This method generates a payment in the payment gateway and returns the information of this
+    public function generatePaymentRequest($order)
     {
 
         $placetopay = $this->loginGateway();
