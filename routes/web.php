@@ -15,16 +15,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('products.list');
-})->middleware('auth');
+});
+
+Route::get('/home', function () {
+    return view('products.list');
+});
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/* Orders Routes */
+Route::resource('orders', App\Http\Controllers\OrderController::class);
 
-Route::resource('orders', App\Http\Controllers\OrderController::class)->middleware('auth');
-
-Route::get('/payment', [App\Http\Controllers\PaymentGateway::class, 'index'])->name('payment');
+Route::prefix('payment')->group(function () {
+    Route::get('create/{id}', [App\Http\Controllers\PaymentController::class, 'create'])->name('payment.create');
+    Route::get('result/{reference}', [App\Http\Controllers\PaymentController::class, 'result'])->name('payment.result');
+});
 
 Route::get('/products', function () {
     return view('products.list');
-})->middleware('auth');
+});

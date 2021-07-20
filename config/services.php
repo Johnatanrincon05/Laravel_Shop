@@ -29,5 +29,9 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-
+    'placetopay'=>[
+        'login_placetopay'=>env('LOGIN_PLACETOPAY'),
+        'trankey_placetopay'=>env('TRANKEY_PLACETOPAY'),
+        'url_placetopay'=>env('URL_PLACETOPAY'),
+    ]
 ];

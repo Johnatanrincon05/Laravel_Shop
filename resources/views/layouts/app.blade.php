@@ -31,13 +31,13 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    @if (Auth::check())
+                    {{-- @if (Auth::check()) --}}
 
                         <ul class="navbar-nav mr-auto">
                             <a class="nav-link" href="{{ route('orders.index') }}">{{ __('orders') }}</a>
                         </ul>
                         
-                    @endif
+                    {{-- @endif --}}
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
