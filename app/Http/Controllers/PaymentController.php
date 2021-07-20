@@ -65,7 +65,7 @@ class PaymentController extends Controller
 
     }
 
-    public function loginGategay(){
+    public function loginGateway(){
 
         $placetopay = new PlacetoPay([
             'login' => config('services.placetopay.login_placetopay'),
@@ -83,7 +83,7 @@ class PaymentController extends Controller
 
     public function validateState($reference){
 
-        $placetopay = $this->loginGategay();
+        $placetopay = $this->loginGateway();
 
         $transactions_count = Transaction::where('reference_code', '=', $reference)->count();
 
@@ -144,7 +144,6 @@ class PaymentController extends Controller
                 }else{
 
                     $this->result($info_transaction->reference_code);
-
                     
                 }
 
@@ -192,7 +191,7 @@ class PaymentController extends Controller
     public function generateRequest($order)
     {
 
-        $placetopay = $this->loginGategay();
+        $placetopay = $this->loginGateway();
 
         $reference = uniqid();
 
