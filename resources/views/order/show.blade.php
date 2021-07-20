@@ -45,6 +45,10 @@
                                     <h3>$250.000 COP</h3>
                                     <p class="card-text">This is the most powerful graphics card on the market.</p>
                                     <div class="form-group">
+                                        <strong>Order Id:</strong>
+                                        {{$order->order_reference}}
+                                    </div>
+                                    <div class="form-group">
                                         <strong>Customer Name:</strong>
                                         {{ $order->customer_name }}
                                     </div>
