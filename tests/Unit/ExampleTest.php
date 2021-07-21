@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use App\Http\Controllers\OrderController;
 
 class ExampleTest extends TestCase
 {
@@ -12,7 +13,7 @@ class ExampleTest extends TestCase
      * @return void
      */
     public function test_example()
-    {
+    {   
         $this->assertTrue(true);
     }
 }

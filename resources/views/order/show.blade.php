@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Order summary</span>
+                            <span class="card-title">Order summary #{{$order->order_reference}}</span>
                         </div>
                     </div>
                     <div class="card-body">

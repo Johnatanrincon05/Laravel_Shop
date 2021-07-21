@@ -147,7 +147,7 @@ class PaymentController extends Controller
                 }else{
 
                     $this->result($info_transaction->reference_code);
-                    
+
                 }
 
             } else {
@@ -179,12 +179,16 @@ class PaymentController extends Controller
         }
 
         //if the tx is saved and the request is generated this redirects to the new payment url 
-        if ($success_payment_request == 1 && $transactions_count == 0) {
+        if ($success_payment_request != 0 && $transactions_count == 0) {//New transaction
     
             header('Location: '.$resultrequest["url"]);
             die();
-            
-        }else{
+        
+        }else if($success_payment_request == 0 && $transactions_count != 0){//Rdirect Pending Transaction (Now resolved on 149 line)
+
+            return redirect()->route('orders.show',$order->id);
+
+        }else{//We have a problem
 
             return redirect()->route('orders.show',$order->id)->with('danger', 'We have had a problem, please try again. If the problem persists, please contact technical support.');
 

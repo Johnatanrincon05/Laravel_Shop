@@ -33,4 +33,4 @@ Route::prefix('payment')->group(function () {
 
 Route::get('/products', function () {
     return view('products.list');
-});
+})->name('products');
