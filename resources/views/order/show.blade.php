@@ -12,7 +12,11 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
+<<<<<<< HEAD
                             <span class="card-title">Order summary #{{$order->order_reference}}</span>
+=======
+                            <span class="card-title">Order summary.</span>
+>>>>>>> 803db569a9482a7e0a3deeffe51632628e02b8eb
                         </div>
                     </div>
                     <div class="card-body">
