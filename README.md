@@ -1,5 +1,8 @@
-# Shop with placetopay redirect webcheckout!
-This is a store to pay with WebCheckout!
+# Shop with Placetopay WebCheckout.
+
+
+This is a store to pay with placetopay redirect WebCheckout!
+
 
 # Steps to follow for the installation and use of the solution
 
