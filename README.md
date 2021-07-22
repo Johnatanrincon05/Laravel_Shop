@@ -1,16 +1,16 @@
 # Shop with placetopay redirect webcheckout!
 This is a store to pay with WebCheckout!
 
-##Steps to follow for the installation and use of the solution
+# Steps to follow for the installation and use of the solution
 
-Requirements:
+# Requirements:
 
 -Have the composer package manager installed
 -Have the php soap extension enabled on the local server.
 -Have npm installed.
 -Have a Mysql database manager.
 
-Steps to follow to start the project
+# Steps to follow to start the project
 
 1. Clone the project.
 2. Create a local database with a database manager.
