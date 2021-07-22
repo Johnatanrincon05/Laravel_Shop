@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/products') }}">
-                    {{ config('app.name', 'Shop') }}
+                    Shop
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -34,9 +34,9 @@
                     {{-- @if (Auth::check()) --}}
 
                         <ul class="navbar-nav mr-auto">
-                            <a class="nav-link" href="{{ route('orders.index') }}">{{ __('orders') }}</a>
+                            <a class="nav-link" href="{{ route('orders.index') }}">{{ __('Orders') }}</a>
+                            <a class="nav-link" href="{{ route('products') }}">{{ __('Products') }}</a>
                         </ul>
-                        
                     {{-- @endif --}}
 
                     <!-- Right Side Of Navbar -->

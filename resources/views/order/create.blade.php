@@ -29,7 +29,7 @@
                                             </div>
                                             <div class="form-group">
                                                 {{ Form::label('customer_identification') }}
-                                                {{ Form::text('customer_identification', $order->customer_identification, ['class' => 'form-control' . ($errors->has('customer_identification') ? ' is-invalid' : ''), 'placeholder' => '123456789']) }}
+                                                {{ Form::number('customer_identification', $order->customer_identification, ['class' => 'form-control' . ($errors->has('customer_identification') ? ' is-invalid' : ''), 'placeholder' => '123456789']) }}
                                                 {!! $errors->first('customer_identification', '<div class="invalid-feedback">:message</p>') !!}
                                             </div>
                                             <div class="form-group">
@@ -44,7 +44,7 @@
                                             </div>
                                             <div class="form-group">
                                                 {{ Form::label('customer_mobile') }}
-                                                {{ Form::text('customer_mobile', $order->customer_mobile, ['class' => 'form-control' . ($errors->has('customer_mobile') ? ' is-invalid' : ''), 'placeholder' => '3123456789']) }}
+                                                {{ Form::number('customer_mobile', $order->customer_mobile, ['class' => 'form-control' . ($errors->has('customer_mobile') ? ' is-invalid' : ''), 'placeholder' => '3123456789']) }}
                                                 {!! $errors->first('customer_mobile', '<div class="invalid-feedback">:message</p>') !!}
                                             </div>
                                         </div>

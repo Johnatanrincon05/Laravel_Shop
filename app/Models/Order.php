@@ -22,10 +22,10 @@ class Order extends Model
 {
     
     static $rules = [
-      'customer_identification' => 'required',
-      'customer_name' => 'required',
-      'customer_email' => 'required',
-      'customer_mobile' => 'required'
+      'customer_identification' => 'required|max:20|min:5',
+      'customer_name' => 'required|max:50',
+      'customer_email' => 'required|email|max:255',
+      'customer_mobile' => 'required|max:10|min:10'
     ];
 
     protected $perPage = 20;

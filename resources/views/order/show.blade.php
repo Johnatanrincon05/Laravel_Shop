@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Order summary</span>
+                            <span class="card-title">Order summary #{{$order->order_reference}}</span>
                         </div>
                     </div>
                     <div class="card-body">
@@ -44,6 +44,10 @@
                                     <img class="img-fluid" height="400" width="400" src="{{ URL::to('/') }}/images/PRODUCT1.png" alt="">
                                     <h3>$250.000 COP</h3>
                                     <p class="card-text">This is the most powerful graphics card on the market.</p>
+                                    <div class="form-group">
+                                        <strong>Order Id:</strong>
+                                        {{$order->order_reference}}
+                                    </div>
                                     <div class="form-group">
                                         <strong>Customer Name:</strong>
                                         {{ $order->customer_name }}
