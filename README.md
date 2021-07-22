@@ -12,6 +12,7 @@ This is a store to pay with placetopay redirect WebCheckout!
 -Have the php soap extension enabled on the local server.
 -Have npm installed.
 -Have a Mysql database manager.
+-Have the respective connection credentials with the placetopay webcheckout and the corresponding endpoint.
 
 # Steps to follow to start the project
 
