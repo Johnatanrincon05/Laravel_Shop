@@ -8,6 +8,7 @@ This is a store to pay with placetopay redirect WebCheckout!
 
 # Requirements:
 
+- Have PHP version 7.4 or higher
 - Have the composer package manager installed
 - Have the php soap extension enabled on the local server.
 - Have npm installed.
